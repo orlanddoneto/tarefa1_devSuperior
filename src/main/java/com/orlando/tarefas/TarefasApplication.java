@@ -28,18 +28,18 @@ public class TarefasApplication  implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		System.out.println("Codigo: ");
+
 		Integer codigo = sc.nextInt();
-		System.out.println("Valor básico: ");
+
 		Double valorBase = sc.nextDouble();
-		System.out.println("Desconto: ");
+
 		Double desconto = sc.nextDouble();
 
 		Order pedido = new Order(codigo,valorBase,desconto);
 
-		System.out.println("Código: "+ pedido.getCode());
+		System.out.println("Pedido Código: "+ pedido.getCode());
 		Double valorFinal = orderService.total(pedido) + shippingService.shipment(pedido);
 
-		System.out.println("Valor Final: "+valorFinal);
+		System.out.println("Valor Total: R$"+valorFinal);
 	}
 }
